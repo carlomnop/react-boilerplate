@@ -2,11 +2,8 @@ const path = require('path')
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const project = require('./project.config')
-
-const __DEV__ = project.env === 'development'
-const __TEST__ = project.env === 'test'
-const __PROD__ = project.env === 'production'
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './src/index.html',
@@ -22,7 +19,23 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test:/\.css$/, use:['style-loader','css-loader'] }
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback:'style-loader',
+          use:['css-loader']
+        })
+      },
+      {
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use : [{
+          loader: 'url-loader',
+          options: {
+            limit: 8192, // Convert images < 8kb to base64 strings
+            name: 'images/[hash]-[name].[ext]'
+          }
+        }]
+      },
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
     ]
@@ -34,6 +47,6 @@ module.exports = {
   plugins: [
     HtmlWebpackPluginConfig,
     new CleanWebpackPlugin(['dist']),
-    new webpack.DefinePlugin(project.globals)
+    new webpack.DefinePlugin(project.commonGlobals)
   ]
 }

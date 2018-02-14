@@ -16,7 +16,12 @@ module.exports = {
   /** A hash map of keys that the compiler should treat as external to the project */
   externals: {},
   /** A hash map of variables and their values to expose globally */
-  globals: {
-    API_ENDPOINT: JSON.stringify('api endpoint here')
+  commonGlobals: {
+  },
+  prodGlobals: {
+  },
+  testGlobals: {
+  },
+  devGlobals: {
   }
 }
