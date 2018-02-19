@@ -15,7 +15,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve('dist'),
-    filename: 'index_bundle.js'
+    filename: 'index_bundle.js',
+    publicPath: project.publicPath,
   },
   module: {
     loaders: [
@@ -32,7 +33,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 8192, // Convert images < 8kb to base64 strings
-            name: '/images/[hash]-[name].[ext]'
+            name: 'images/[hash]-[name].[ext]'
           }
         }]
       },
