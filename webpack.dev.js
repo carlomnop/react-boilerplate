@@ -5,7 +5,7 @@ const project = require('./project.config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = merge(common, {
-  devtool: 'inline-source-map',
+  devtool: 'eval',
   devServer: {
     contentBase: './dist'
   },
