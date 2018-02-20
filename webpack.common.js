@@ -5,14 +5,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const project = require('./project.config')
 
+const inProject = path.resolve.bind(path, project.basePath)
+const inProjectSrc = (file) => inProject(project.srcDir, file)
+
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './src/index.html',
-  filename: 'index.html',
-  inject: 'body'
+  template: inProjectSrc('index.html'),
+  inject: true,
+  minify: {
+    collapseWhitespace: true,
+  },
 })
 
 module.exports = {
-  entry: './src/index.js',
+  entry: inProjectSrc(project.main),
   output: {
     path: path.resolve(project.outDir),
     filename: 'index_bundle.js',
