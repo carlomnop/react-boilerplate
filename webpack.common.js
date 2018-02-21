@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const project = require('./project.config')
 
 const inProject = path.resolve.bind(path, project.basePath)
-const inProjectSrc = (file) => inProject(project.srcDir, file)
+const inProjectSrc = file => inProject(project.srcDir, file)
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: inProjectSrc('index.html'),
@@ -29,8 +29,8 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback:'style-loader',
-          use:['css-loader']
-        })
+          use:['css-loader',],
+        }),
       },
       {
         test: /\.(png|jp(e*)g|svg|gif)$/,
@@ -38,21 +38,21 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 8192, // Convert images < 8kb to base64 strings
-            name: 'images/[hash]-[name].[ext]'
-          }
-        }]
+            name: 'images/[hash]-[name].[ext]',
+          },
+        },],
       },
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
-    ]
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, },
+      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/, },
+    ],
   },
   externals: project.externals,
   devServer: {
-    port: project.port
+    port: project.port,
   },
   plugins: [
     HtmlWebpackPluginConfig,
-    new CleanWebpackPlugin(['dist']),
-    new webpack.DefinePlugin(project.commonGlobals)
-  ]
+    new CleanWebpackPlugin(['dist',]),
+    new webpack.DefinePlugin(project.commonGlobals),
+  ],
 }

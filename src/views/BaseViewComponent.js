@@ -1,30 +1,25 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { SampleActions } from '../actions'
+import { connect, } from 'react-redux'
+import { bindActionCreators, } from 'redux'
+import { SampleActions, } from '../actions'
 
-const mapStateToProps = (state) => {
- return {
+const mapStateToProps = state => ({
   samples: state.samples,
- }
-}
+})
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions:  {
-      sampleActions: bindActionCreators(SampleActions, dispatch),
-    }
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  actions:  {
+    sampleActions: bindActionCreators(SampleActions, dispatch),
+  },
+})
 
-export default function BaseViewComponent(WrappedView) {
+export default function BaseViewComponent (WrappedView) {
   class BaseViewComponent extends WrappedView {
-
-    constructor() {
+    constructor () {
       super()
     }
 
-    render() {
+    render () {
       return (
         <div>
           { super.render() }

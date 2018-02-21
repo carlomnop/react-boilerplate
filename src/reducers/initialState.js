@@ -1,3 +1,3 @@
 export default {
-  sampleState: "Hello"
+  sampleState: 'Hello',
 }

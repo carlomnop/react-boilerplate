@@ -7,7 +7,7 @@ const project = require('./project.config')
 module.exports = merge(common, {
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -18,7 +18,7 @@ module.exports = merge(common, {
     }),
     new webpack.DefinePlugin(Object.assign({}, {
       'process.env.NODE_ENV': JSON.stringify('test'),
-      'DEBUG': true
-    }, project.testGlobals))
-  ]
+      DEBUG: true,
+    }, project.testGlobals)),
+  ],
 })

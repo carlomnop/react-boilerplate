@@ -1,15 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component, } from 'react'
 
 class Main extends Component {
-
-  render() {
+  render () {
     return (
       <div>
         Hello world
       </div>
-    );
+    )
   }
-
 }
 
 export default Main
