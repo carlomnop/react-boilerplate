@@ -25,7 +25,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "lint": "node_modules\\.bin\\eslint .",
+    "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix"
   },
   "devDependencies": {
