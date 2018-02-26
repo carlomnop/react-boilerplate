@@ -29,7 +29,7 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback:'style-loader',
-          use:['css-loader',],
+          use:['css-loader'],
         }),
       },
       {
@@ -40,10 +40,10 @@ module.exports = {
             limit: 8192, // Convert images < 8kb to base64 strings
             name: 'images/[hash]-[name].[ext]',
           },
-        },],
+        }],
       },
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/, },
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
     ],
   },
   externals: project.externals,
@@ -52,7 +52,7 @@ module.exports = {
   },
   plugins: [
     HtmlWebpackPluginConfig,
-    new CleanWebpackPlugin(['dist',]),
+    new CleanWebpackPlugin(['dist']),
     new webpack.DefinePlugin(project.commonGlobals),
   ],
 }

@@ -2,14 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 /* redux */
-import { Provider, } from 'react-redux'
+import { Provider } from 'react-redux'
 
 /* Routers */
-import { Router, Route, browserHistory, } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router'
 
 /* Routes */
 import Views from './views'
-import { main, } from './css'
+import { main } from './css'
 
 import store from './store'
 
