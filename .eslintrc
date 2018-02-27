@@ -64,7 +64,7 @@
     'object-shorthand': 'warn',
     'eqeqeq': 'warn',
     'radix': 'error',
-    'id-length': ['warn', { 'min': 2, 'max': 30 }],
+    'id-length': ['off', { 'min': 2, 'max': 30 }],
 
     'import/first': 'error',
     'import/no-mutable-exports': 'warn',
