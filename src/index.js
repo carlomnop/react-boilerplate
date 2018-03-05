@@ -8,14 +8,14 @@ import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from 'react-router'
 
 /* Routes */
-import Views from './views'
+import LoginView from './views/login/LoginView'
 import { main } from './css'
 
 import store from './store'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path = "/" component = {Views} />
+  <Provider store={ store }>
+    <Router history={ browserHistory }>
+      <Route path = '/' component = { LoginView } />
     </Router>
   </Provider>, document.getElementById('root'))
