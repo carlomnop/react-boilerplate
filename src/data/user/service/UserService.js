@@ -1,13 +1,11 @@
-import ApiClient from '../../common/ApiClient'
-
 export default class UserService {
 
-  constructor() {
-    this.baseRequest = ApiClient.BaseRequest
+  constructor(apiClient) {
+    this.apiClient = apiClient
   }
 
   login(loginParam) {
-    return this.baseRequest.post('/login', {
+    return this.apiClient.post('/login', {
       body: loginParam,
       json: true,
     })

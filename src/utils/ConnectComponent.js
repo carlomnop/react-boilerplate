@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 export default function ConnectComponent (View, Presenter) {
   class ConnectComponent extends Component {
@@ -7,7 +7,7 @@ export default function ConnectComponent (View, Presenter) {
     }
 
     render () {
-      const presenter = new Presenter()
+      const presenter = new Presenter(this.props.container)
 
       return <View presenter = { presenter } { ...this.props } />
     }

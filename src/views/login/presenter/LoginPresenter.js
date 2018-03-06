@@ -4,8 +4,8 @@ import UserDataRepository from '../../../data/user/repository/UserDataRepository
 
 export default class LoginPresenter {
 
-  constructor() {
-    this.loginInteractor = new LoginInteractor(new UserDataRepository(new UserService()))
+  constructor(container) {
+    this.loginInteractor = new LoginInteractor(container.get('UserRepository'))
   }
 
   setView(view) {
