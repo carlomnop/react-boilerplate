@@ -1,10 +1,10 @@
 export default class LoginInteractor {
 
-  constructor(userService) {
-    this.userService = userService
+  constructor(userRepository) {
+    this.userRepository = userRepository
   }
 
   execute(loginParam) {
-    return this.userService.login(loginParam)
+    return this.userRepository.login(loginParam)
   }
 }

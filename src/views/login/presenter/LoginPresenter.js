@@ -1,10 +1,11 @@
 import LoginInteractor from '../../../domain/user/interactor/LoginInteractor'
 import UserService from '../../../data/user/service/UserService'
+import UserDataRepository from '../../../data/user/repository/UserDataRepository'
 
 export default class LoginPresenter {
 
   constructor() {
-    this.loginInteractor = new LoginInteractor(new UserService())
+    this.loginInteractor = new LoginInteractor(new UserDataRepository(new UserService()))
   }
 
   setView(view) {
