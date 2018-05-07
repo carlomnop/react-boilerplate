@@ -2,8 +2,8 @@ const path = require('path')
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const project = require('./project.config')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const project = require('../project.config')
 
 const inProject = path.resolve.bind(path, project.basePath)
 const inProjectSrc = file => inProject(project.srcDir, file)
@@ -24,14 +24,7 @@ module.exports = {
     publicPath: project.publicPath,
   },
   module: {
-    loaders: [
-      {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback:'style-loader',
-          use:['css-loader'],
-        }),
-      },
+    rules: [
       {
         test: /\.(png|jp(e*)g|svg|gif)$/,
         use : [{
@@ -42,8 +35,8 @@ module.exports = {
           },
         }],
       },
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.js$/, use: { loader: 'babel-loader' }, exclude: /node_modules/ },
+      { test: /\.jsx$/, use: { loader: 'babel-loader' }, exclude: /node_modules/ },
     ],
   },
   externals: project.externals,
