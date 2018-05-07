@@ -17,9 +17,12 @@ module.exports = {
   commonGlobals: {
   },
   prodGlobals: {
+    BASE_URL: JSON.stringify('api_url_here'),
   },
   testGlobals: {
+    BASE_URL: JSON.stringify('api_url_here'),
   },
   devGlobals: {
+    BASE_URL: JSON.stringify('api_url_here'),
   },
 }

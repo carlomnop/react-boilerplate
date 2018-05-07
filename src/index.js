@@ -5,17 +5,17 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
 /* Routers */
-import { Router, Route, browserHistory } from 'react-router'
+import { BrowserRouter, Route, browserHistory } from 'react-router-dom'
 
 /* Routes */
-import Views from './views'
+import App from './views/App'
 import { main } from './css'
 
 import store from './store'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path = "/" component = {Views} />
-    </Router>
+  <Provider store={ store }>
+    <BrowserRouter history={ browserHistory }>
+      <App />
+    </BrowserRouter>
   </Provider>, document.getElementById('root'))
