@@ -9,11 +9,9 @@
   "dependencies": {
     "axios": "^0.17.1",
     "clean-webpack-plugin": "^0.1.18",
-    "material-ui": "^0.20.0",
-    "material-ui-next": "^1.0.0-beta.32",
     "path": "^0.12.7",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.x.x",
+    "react-dom": "^16.x.x",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
