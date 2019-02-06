@@ -15,6 +15,7 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+    "redux-saga": "^1.0.0",
     "rxios": "tentenponce/rxios",
     "rxjs": "5.5.6",
     "uglifyjs-webpack-plugin": "^1.1.8"
@@ -44,6 +45,7 @@
     "mocha": "^5.2.0",
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^4.0.1",
+    "file-loader": "^3.0.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.20.1",
     "url-loader": "^0.6.2",
