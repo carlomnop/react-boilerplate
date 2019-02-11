@@ -13,6 +13,8 @@ import { main } from './css'
 
 import store from './store'
 
+console.log(React.version);
+
 ReactDOM.render(
   <Provider store={ store }>
     <BrowserRouter history={ browserHistory }>
