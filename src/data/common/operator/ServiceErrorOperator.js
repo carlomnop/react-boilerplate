@@ -1,5 +1,6 @@
 import GenericError from '../../../domain/common/exception/GenericError'
 import ForbiddenError from '../../../domain/common/exception/ForbiddenError'
+import ServerError from '../../../domain/common/exception/ServerError'
 import { Observable } from 'rxjs'
 
 export default function ServiceErrorOperator () {
@@ -18,7 +19,7 @@ export default function ServiceErrorOperator () {
           subscriber.error(new ServerError(`It seems that we've encountered a problem. Error: ${code}`))
         }
       },
-      err => subscriber.error(new ServerError('It seems that \'ve encountered a problem. Error: 2')),
+      err => subscriber.error(new ServerError(`It seems that we've encountered a problem. Error: 2`)),
       () => subscriber.complete())
 
       return subscription
